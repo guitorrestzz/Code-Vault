@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureVault - Gerenciador de Senhas Seguras</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Atualize o título e textos no index.html -->
+    <title>CodeVault - Gerenciador Criptográfico</title>
+
+    <!-- No header -->
+    <div class="header-title-wrapper">
+        <img src="Imagem/imagem.png" alt="Logotipo CodeVault" class="site-logo">
+        <h1>CodeVault</h1>
+    </div>
+    <!-- Na tela de loading -->
+    <div class="loader">
+        <div class="spinner"></div>
+        <h1>CodeVault</h1>
+        <p>Inicializando sistema criptográfico...</p>
+    </div>
+    <main>
+        <section id="password-generator" class="card primary-card">
+            <h2>Gerar & Salvar Senha</h2>
+
+            <div class="input-group">
+                <label for="service-name">Nome do Serviço (ex: Netflix, Google):</label>
+                <input type="text" id="service-name" placeholder="Nome do Serviço" required>
+            </div>
+
+            <div class="input-group">
+                <label for="length">Comprimento da Senha:</label>
+                <input type="number" id="length" value="16" min="8" max="128">
+            </div>
+
+            <h3>Opções de Caracteres</h3>
+            <div class="options">
+                <label for="include-uppercase">
+                    <input type="checkbox" id="include-uppercase" checked>Letras Maiúsculas (A-Z)
+                </label>
+                <label for="include-lowercase">
+                    <input type="checkbox" id="include-lowercase" checked>Letras Minúsculas (a-z)
+                </label>
+                <label for="include-numbers">
+                    <input type="checkbox" id="include-numbers" checked>Números (0-9)
+                </label>
+                <label for="include-symbols">
+                    <input type="checkbox" id="include-symbols" checked>Símbolos (!@#$%)
+                </label>
+            </div>
+
+            <div class="password-output">
+                <input type="text" id="generated-password" readonly placeholder="Clique em 'Gerar' para ver a senha">
+                <button id="generate-button" class="btn primary">Gerar Senha</button>
+            </div>
+
+            <button id="add-entry-button" class="btn full-width secondary" disabled>
+                Adicionar Nova Entrada
+            </button>
+
+        </section>
+
+        <section id="password-list" class="card secondary-card">
+            <h2>Suas Senhas Salvas (Local)</h2>
+            <p class="info-text">Senhas gerenciadas no seu navegador. Elas persistem até você fechar a aba ou limpar o
+                cache.</p>
+
+            <div id="entries-container">
+                <p id="empty-message">Nenhuma senha salva ainda. Gere uma para começar!</p>
+            </div>
+        </section>
+    </main>
+
+    <template id="password-item-template">
+        <div class="password-item">
+            <span class="service-name-display"></span>
+            <div class="password-display">
+                <span class="password-mask">************</span>
+                <span class="real-password" style="display: none;"></span>
+            </div>
+            <div class="actions">
+                <button class="btn small action-show primary">Mostrar</button>
+                <button class="btn small action-copy secondary">Copiar</button>
+                <button class="btn small action-remove danger">Remover</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

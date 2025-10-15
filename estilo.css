@@ -1,0 +1,653 @@
+/* Definição das variáveis de cor - Tema Hacker: CodeVault */
+:root {
+    --deep-black: #0a0a0f;          /* Fundo do Body */
+    --tech-grey: #1a1a2e;           /* Fundo dos Cards */
+    --matrix-green: #00ff41;        /* Destaque / Botão Secundário */
+    --dark-charcoal: #2d2d3a;       /* Fundo de Inputs */
+    --neon-cyan: #00ffff;           /* Cor Principal de Ação */
+    --terminal-text: #00ff41;       /* Cor para títulos (Verde Matrix) */
+
+    --shadow-light: rgba(0, 255, 65, 0.1); 
+    --shadow-strong: rgba(0, 255, 65, 0.25); 
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', monospace;
+}
+
+body {
+    color: var(--neon-cyan); 
+    line-height: 1.6;
+    padding: 20px 15px;
+    min-height: 100vh;
+    position: relative; 
+    overflow-x: hidden; 
+
+    /* Fundo: Degradê Hacker */
+    background: linear-gradient(-45deg, var(--deep-black), #0f0f1f, #1a1a1a, var(--deep-black));
+    background-size: 600% 600%; 
+    animation: gradient-flow 10s ease infinite; 
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* === HEADER RESPONSIVO === */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative; 
+    z-index: 1;
+}
+
+.header-title-wrapper {
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.site-logo {
+    max-width: 50px; 
+    height: auto;
+    margin-right: 15px;
+    filter: hue-rotate(90deg) brightness(1.3);
+}
+
+header h1 {
+    color: var(--terminal-text); 
+    font-size: clamp(2.5em, 8vw, 4.5em); /* Título responsivo */
+    font-weight: 800;
+    letter-spacing: 2px; 
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.5); 
+    margin: 0;
+    word-break: break-word;
+}
+
+header p {
+    font-weight: 600; 
+    color: var(--neon-cyan); 
+    font-size: clamp(1em, 4vw, 1.3em); /* Texto responsivo */
+    margin-top: 8px;
+}
+
+/* === MAIN GRID RESPONSIVO === */
+main {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative; 
+    z-index: 1;
+}
+
+/* === MEDIA QUERIES === */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    body {
+        padding: 25px 20px;
+    }
+}
+
+/* Tablets Pequenos */
+@media (max-width: 768px) {
+    .card {
+        padding: 25px 20px;
+    }
+    
+    header {
+        margin-bottom: 25px;
+    }
+    
+    .header-title-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .site-logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+        max-width: 45px;
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    body {
+        padding: 15px 10px;
+    }
+    
+    .card {
+        padding: 20px 15px;
+        border-radius: 12px;
+    }
+    
+    header {
+        margin-bottom: 20px;
+    }
+    
+    h2 {
+        font-size: 1.6em;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+    }
+    
+    h3 {
+        font-size: 1.1em;
+        margin-top: 20px;
+        margin-bottom: 12px;
+    }
+}
+
+/* Celulares Pequenos */
+@media (max-width: 480px) {
+    body {
+        padding: 10px 8px;
+    }
+    
+    .card {
+        padding: 18px 12px;
+    }
+    
+    header h1 {
+        font-size: 2.2em;
+        letter-spacing: 1px;
+    }
+    
+    header p {
+        font-size: 1em;
+    }
+}
+
+/* === CARD STYLES (inalterados exceto padding) === */
+.card {
+    background-color: var(--tech-grey); 
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px var(--shadow-light); 
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 1px solid var(--matrix-green); 
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-strong);
+}
+
+h2 {
+    color: var(--terminal-text); 
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 2em; 
+    border-bottom: 2px solid var(--matrix-green); 
+    padding-bottom: 10px;
+}
+
+h3 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: var(--terminal-text); 
+    font-size: 1.2em;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--neon-cyan);
+}
+
+input[type="number"],
+input[type="text"] {
+    padding: 14px 18px;
+    border: 1px solid var(--matrix-green); 
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: var(--dark-charcoal); 
+    color: var(--neon-cyan); 
+    font-family: 'Courier New', monospace;
+}
+
+input[type="number"]:focus,
+input[type="text"]:-webkit-autofill,
+input[type="text"]:-webkit-autofill:hover,
+input[type="text"]:-webkit-autofill:focus,
+input[type="text"]:-webkit-autofill:active {
+    border-color: var(--neon-cyan); 
+    box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.3);
+    outline: none;
+    -webkit-box-shadow: 0 0 0 30px var(--dark-charcoal) inset; 
+    -webkit-text-fill-color: var(--neon-cyan);
+}
+
+input[type="text"]:focus {
+    border-color: var(--neon-cyan); 
+    box-shadow: 0 0 0 3px rgba(0, 255, 255, 0.3);
+    outline: none;
+}
+
+/* === OPTIONS GRID RESPONSIVO === */
+.options {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    .options {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .options {
+        gap: 10px;
+    }
+    
+    .options label {
+        padding: 10px;
+        font-size: 0.9em;
+    }
+}
+
+.options label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    margin: 0;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--matrix-green); 
+    background-color: var(--dark-charcoal); 
+    color: var(--neon-cyan); 
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.options label:hover {
+    background-color: rgba(0, 255, 65, 0.1); 
+    border-color: var(--neon-cyan);
+}
+
+input[type="checkbox"] {
+    min-width: 20px; 
+    min-height: 20px;
+    margin-right: 12px;
+    accent-color: var(--matrix-green); 
+}
+
+/* === BOTÕES RESPONSIVOS === */
+.btn {
+    padding: 14px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    font-family: 'Courier New', monospace;
+}
+
+@media (max-width: 600px) {
+    .btn {
+        padding: 12px 20px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .btn {
+        padding: 10px 16px;
+        font-size: 0.8em;
+        letter-spacing: 0.3px;
+    }
+}
+
+/* Botão Primário - Neon Cyan */
+.btn.primary {
+    background-color: var(--neon-cyan);
+    color: var(--deep-black); 
+}
+
+.btn.primary:hover:not(:disabled) {
+    background-color: #00e6e6; 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.4);
+}
+
+/* Botão Secundário - Matrix Green */
+.btn.secondary {
+    background-color: var(--matrix-green);
+    color: var(--deep-black); 
+}
+
+.btn.secondary:hover:not(:disabled) {
+    background-color: #00e641; 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 255, 65, 0.5);
+}
+
+.btn:disabled {
+    background-color: #333;
+    cursor: not-allowed;
+    opacity: 0.7;
+    box-shadow: none;
+}
+
+.btn.full-width {
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* Botão de Risco - Vermelho Hacker */
+.btn.danger {
+    background-color: #ff0033;
+    color: var(--tech-grey);
+}
+
+.btn.danger:hover {
+    background-color: #cc0029;
+}
+
+/* === PASSWORD OUTPUT RESPONSIVO === */
+.password-output {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    align-items: stretch;
+}
+
+@media (max-width: 600px) {
+    .password-output {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    #generate-button {
+        width: 100%;
+    }
+}
+
+#generated-password {
+    flex-grow: 1;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: var(--matrix-green); 
+    text-align: center;
+    border: 2px dashed var(--matrix-green); 
+    background-color: var(--dark-charcoal); 
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
+    padding: 12px;
+}
+
+@media (max-width: 480px) {
+    #generated-password {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+.info-text {
+    color: var(--neon-cyan);
+    font-style: italic;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+    padding: 10px;
+    border-left: 4px solid var(--matrix-green); 
+    background-color: var(--dark-charcoal); 
+    border-radius: 8px;
+}
+
+/* === PASSWORD LIST RESPONSIVO === */
+.password-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 10px;
+    border-bottom: 1px solid var(--matrix-green); 
+    transition: background-color 0.3s;
+}
+
+@media (max-width: 768px) {
+    .password-item {
+        padding: 15px 8px;
+    }
+}
+
+@media (max-width: 600px) {
+    .password-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 15px;
+        border: 1px solid var(--matrix-green);
+        border-radius: 8px;
+        margin-bottom: 10px;
+        background: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.password-item:hover {
+    background-color: rgba(0, 255, 65, 0.05); 
+}
+
+.service-name-display {
+    font-weight: 700;
+    flex: 1;
+    color: var(--terminal-text); 
+    font-size: 1.1em;
+    word-break: break-word;
+}
+
+@media (max-width: 600px) {
+    .service-name-display {
+        width: 100%;
+        text-align: center;
+        font-size: 1.2em;
+    }
+}
+
+.password-display {
+    flex: 2;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 8px 15px;
+    background-color: var(--dark-charcoal); 
+    border-radius: 6px;
+    margin: 0 15px;
+    min-width: 150px;
+}
+
+@media (max-width: 600px) {
+    .password-display {
+        width: 100%;
+        margin: 0;
+        min-width: auto;
+        padding: 10px;
+    }
+}
+
+.password-mask {
+    color: var(--neon-cyan); 
+    letter-spacing: 3px;
+}
+
+.real-password {
+    color: var(--terminal-text); 
+    font-weight: 700;
+}
+
+.actions {
+    margin-left: 15px;
+    min-width: 210px;
+    display: flex;
+    gap: 8px;
+}
+
+@media (max-width: 768px) {
+    .actions {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .actions {
+        width: 100%;
+        margin-left: 0;
+        justify-content: space-between;
+        min-width: auto;
+    }
+}
+
+.btn.small {
+    padding: 8px 12px;
+    font-size: 0.75em;
+    font-weight: 600;
+    flex-grow: 1;
+}
+
+@media (max-width: 480px) {
+    .btn.small {
+        padding: 8px 10px;
+        font-size: 0.7em;
+    }
+}
+
+/* === LOADING SCREEN RESPONSIVO === */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--deep-black);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+    color: var(--terminal-text);
+}
+
+.loader {
+    text-align: center;
+    padding: 30px;
+    border-radius: 12px;
+    background-color: var(--tech-grey);
+    box-shadow: 0 10px 30px var(--shadow-strong);
+    border: 1px solid var(--matrix-green);
+    margin: 20px;
+}
+
+@media (max-width: 600px) {
+    .loader {
+        padding: 20px;
+        margin: 15px;
+    }
+    
+    .loader h1 {
+        font-size: 2em;
+    }
+}
+
+.loader h1 {
+    font-size: 2.5em;
+    color: var(--terminal-text);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.loader p {
+    font-weight: 400;
+    color: var(--neon-cyan);
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 6px solid rgba(0, 255, 65, 0.3);
+    border-top: 6px solid var(--matrix-green);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* === MELHORIAS EXTRAS PARA MOBILE === */
+@media (max-width: 600px) {
+    /* Melhora a legibilidade em mobile */
+    body {
+        font-size: 14px;
+    }
+    
+    /* Ajusta inputs para mobile */
+    input[type="number"],
+    input[type="text"] {
+        padding: 12px 15px;
+        font-size: 16px; /* Previne zoom no iOS */
+    }
+    
+    /* Melhora o espaçamento geral */
+    .input-group {
+        margin-bottom: 15px;
+    }
+}
+
+/* Orientation landscape para celulares */
+@media (max-width: 768px) and (orientation: landscape) {
+    body {
+        padding: 15px;
+    }
+    
+    .card {
+        padding: 20px;
+    }
+    
+    header {
+        margin-bottom: 20px;
+    }
+}
